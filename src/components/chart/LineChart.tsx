@@ -1,21 +1,22 @@
 import { Line } from "react-chartjs-2";
 import "chart.js/auto"
 
-const LineChart = ({ 
-    chartData, 
-    label 
-}: { 
-    chartData: any, 
-    label: string 
+const LineChart = ({
+    chartData,
+    label
+}: {
+    chartData: any,
+    label: string
 }) => {
-    return <Line data={chartData}
+    return <Line
+        data={chartData}
         options={{
             plugins: {
                 title: {
                     display: true,
                     text: label,
                     font: {
-                        size: 20
+                        size: 18
                     }
                 },
             },
@@ -43,7 +44,9 @@ const LineChart = ({
                     }
                 }
             }
-        }} />
+        }}
+        className="h-full w-full"
+    />
 }
 
 export default LineChart

@@ -4,15 +4,20 @@ import type { PatientInfo } from "../constants/patient-types"
 export default function usePatientInfo() {
     const [patientsData, setPatientsData] = useState<PatientInfo[]>([])
     const [selectedPatient, setSelectedPatient] = useState<PatientInfo | undefined>(undefined)
+    const [isLoading, setIsLoading] = useState<boolean>(true)
 
     useEffect(() => {
         const getData = async () => {
+            setIsLoading(true)
+
             const STORAGE_KEY = "patients-cache"
             const cached = localStorage.getItem(STORAGE_KEY)
             if (cached) {
                 const data = JSON.parse(cached)
                 setPatientsData(data)
                 setSelectedPatient(data.find((p: { name: string }) => p.name === "Jessica Taylor"))
+
+                setTimeout(() => setIsLoading(false), 2000)
                 return
             }
 
@@ -33,6 +38,7 @@ export default function usePatientInfo() {
                         setPatientsData(data)
                         setSelectedPatient(data.find((patient: PatientInfo) => patient.name === "Jessica Taylor"))
                         localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+                        setTimeout(() => setIsLoading(false), 2000)
                     });
             } catch (err) {
                 console.log(err)
@@ -45,6 +51,7 @@ export default function usePatientInfo() {
     return {
         patientsData,
         selectedPatient,
-        setSelectedPatient
+        setSelectedPatient,
+        isLoading
     }
 }

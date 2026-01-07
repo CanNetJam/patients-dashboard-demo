@@ -5,7 +5,7 @@ import PatientProfile from './components/patient/PatientProfile'
 import usePatientInfo from './hooks/usePatientInfo'
 
 function App() {
-    const { patientsData, selectedPatient, setSelectedPatient } = usePatientInfo();
+    const { patientsData, selectedPatient, setSelectedPatient, isLoading } = usePatientInfo();
 
     return (
         <div className='h-auto min-h-screen w-full p-4 flex flex-col gap-6 bg-gray-100'>
@@ -13,13 +13,13 @@ function App() {
 
             <div className='h-full grid grid-cols-4 gap-6'>
                 <div>
-                    <PatientList patientsData={patientsData} selectedPatient={selectedPatient} setSelectedPatient={setSelectedPatient}/>
+                    <PatientList patientsData={patientsData} selectedPatient={selectedPatient} setSelectedPatient={setSelectedPatient} isLoading={isLoading} />
                 </div>
                 <div className='col-span-2'>
-                    <PatientDiagnostics selectedPatient={selectedPatient}/>
+                    <PatientDiagnostics selectedPatient={selectedPatient} isLoading={isLoading}/>
                 </div>
                 <div>
-                    <PatientProfile selectedPatient={selectedPatient}/>
+                    <PatientProfile selectedPatient={selectedPatient} isLoading={isLoading}/>
                 </div>
             </div>
         </div>
