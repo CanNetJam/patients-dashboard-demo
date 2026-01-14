@@ -3,12 +3,15 @@ import "chart.js/auto"
 
 const LineChart = ({
     chartData,
-    label
+    label,
+    key
 }: {
     chartData: any,
-    label: string
+    label: string,
+    key: string
 }) => {
     return <Line
+        key={key}
         data={chartData}
         options={{
             plugins: {

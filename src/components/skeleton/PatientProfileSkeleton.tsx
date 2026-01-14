@@ -14,9 +14,9 @@ const temp = {
 export default function PatientProfileSkeleton() {
     return (
         <div className="h-full max-h-[85vh] w-full grid grid-rows-12 gap-4">
-            <div className="row-span-9 bg-white rounded-xl flex flex-col justify-between gap-2 p-4">
+            <div className="row-span-9 bg-white rounded-xl flex flex-col justify-between p-4">
                 <div className="w-full flex flex-col justify-center items-center">
-                    <div className="h-32 w-32 flex justify-center">
+                    <div className="h-24 w-24 flex justify-center">
                         <div
                             className={`animate-pulse rounded-full bg-gray-200 dark:bg-gray-700 h-full w-full`}
                         />
@@ -37,10 +37,10 @@ export default function PatientProfileSkeleton() {
                                         {key == "insurance_type" && <svg className='h-[65%] w-[65%] fill-current text-gray-600' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="m438-338 226-226-57-57-169 169-84-84-57 57 141 141Zm42 258q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z" /></svg>}
                                     </div>
 
-                                    <div className=" w-full">
-                                        <span className="text-gray-500 capitalize">{key.replaceAll('_', ' ')}</span>
-                                        <div className="text-gray-600 font-medium">
-                                            <span><Skeleton className="h-6 w-full" /></span>
+                                    <div className="w-full">
+                                        <span className="text-gray-500 capitalize leading-3">{key.replaceAll('_', ' ')}</span>
+                                        <div className="text-gray-600 font-medium leading-4">
+                                            <span><Skeleton className="h-5 w-full" /></span>
                                         </div>
                                     </div>
                                 </div>

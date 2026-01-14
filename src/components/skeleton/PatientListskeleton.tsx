@@ -26,7 +26,7 @@ export default function PatientListSkeleton() {
 
                                 <div className="flex justify-between items-center w-full">
                                     <div className="grid gap-1">
-                                        <span className="font-medium"><Skeleton className="h-6 w-64" /></span>
+                                        <span className="font-medium"><Skeleton className="h-6 w-48" /></span>
                                         <span className="flex">
                                             <Skeleton className="h-4 w-12" />,
                                             <Skeleton className="h-4 w-6" />

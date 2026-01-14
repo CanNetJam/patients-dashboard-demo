@@ -2,6 +2,7 @@ import type { PatientInfo } from "../../constants/patient-types";
 import LineChart from "../chart/LineChart";
 import { usePatientDiagnostic } from "../../hooks/usePatientDiagnostic";
 import PatientDiagnosticSkeleton from "../skeleton/PatientDiagnosticSkeleton";
+import useWindowWidth from "../../hooks/useWindowWidth";
 
 export default function PatientDiagnostics({
     selectedPatient,
@@ -19,12 +20,13 @@ export default function PatientDiagnostics({
         setGraphYear,
         lastDisplayData
     } = usePatientDiagnostic(selectedPatient);
+    const { windowWidth } = useWindowWidth();
 
     return (
         <>
             {isLoading === false ?
-                <div className="h-full max-h-[85vh] w-full grid grid-rows-12 gap-4">
-                    <div className="row-span-8 h-full w-full bg-white rounded-xl p-4 grid gap-3">
+                <div className="h-full max-h-[85vh] w-full grid gap-4 bg-white rounded-xl overflow-y-scroll">
+                    <div className="h-full w-full p-4 grid gap-3">
                         <div className="flex justify-between items-center">
                             <label className="row-span-1 text-xl font-medium">Diagnostic History</label>
 
@@ -43,6 +45,7 @@ export default function PatientDiagnostics({
                         <div className=" bg-purple-50 rounded-xl h-full grid xl:grid-cols-12 xl:gap-4">
                             <div className="xl:col-span-9 h-auto xl:max-h-[275px] w-full">
                                 <LineChart
+                                    key={"chart" + windowWidth}
                                     chartData={{
                                         labels,
                                         datasets: [
@@ -109,7 +112,7 @@ export default function PatientDiagnostics({
                         </div>
                     </div>
 
-                    <div className="row-span-4 h-full bg-white rounded-xl p-4 flex flex-col gap-2">
+                    <div className="h-full p-4 flex flex-col gap-2">
                         <label className="text-xl font-medium">Diagnostic List</label>
 
                         <div className="w-full overflow-y-auto flex-1 relative">
