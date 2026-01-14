@@ -9,7 +9,14 @@ function App() {
     const { patientsData, selectedPatient, setSelectedPatient, isLoading } = usePatientInfo();
 
     useEffect(() => {
-        alert(`This is a demo application for a patient's dashboard. It features dynamic data, charts, loading state, caching, and error handling. Moreover, it is not mobile responsive by choice since dashboards are usually used on desktops and tablets. All data presented is fictional and for demonstration purposes only.`);
+        const Shown = "message_shown"
+        const cached = localStorage.getItem(Shown)
+        if (cached) {
+            return
+        } else {
+            alert(`This is a demo application for a patient's dashboard. It features dynamic data, charts, loading state, caching, and error handling. Moreover, it is not mobile responsive by choice since dashboards are usually used on desktops and tablets. All data presented is fictional and for demonstration purposes only.`);
+            localStorage.setItem(Shown, "true")
+        }
     }, [])
 
     return (
