@@ -22,7 +22,7 @@ export default function usePatientInfo() {
             }
 
             try {
-                const testUrl = "/example_data.json" // 'https://fedskillstest.coalitiontechnologies.workers.dev'
+                const testUrl = `${import.meta.env.VITE_PUBLIC_URL}/example_data.json`; // Replace with actual API endpoint if available
                 const Username = "coalition"
                 const Password = "skills-test"
                 const basicAuth = 'Basic ' + btoa(`${Username}:${Password}`)

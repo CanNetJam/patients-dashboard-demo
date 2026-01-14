@@ -69,7 +69,7 @@ export default function PatientDiagnosticSkeleton() {
                             </tr>
                         </thead>
                         <tbody>
-                            {[1,2,3].map((a, index) => {
+                            {[1,2,3].map((_, index) => {
                                 return (
                                     <tr key={index}>
                                         <td className="py-4 pl-4 border-b border-b-gray-100 px-2"><Skeleton className="h-8 w-full" /></td>
