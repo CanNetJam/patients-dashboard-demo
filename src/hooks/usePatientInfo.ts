@@ -22,9 +22,9 @@ export default function usePatientInfo() {
             }
 
             try {
-                const testUrl = `${import.meta.env.VITE_PUBLIC_URL}/example_data.json`; // Replace with actual API endpoint if available
-                const Username = "coalition"
-                const Password = "skills-test"
+                const testUrl = `${import.meta.env.BASE_URL}/example_data.json`; // Replace with actual API endpoint if available
+                const Username = "admin"
+                const Password = "testing"
                 const basicAuth = 'Basic ' + btoa(`${Username}:${Password}`)
 
                 fetch(testUrl, {
